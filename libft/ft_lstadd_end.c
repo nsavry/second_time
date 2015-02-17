@@ -1,30 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   memchr.c                                           :+:      :+:    :+:   */
+/*   ft_lstadd_end.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lsirigna <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: smarie-c <smarie-c@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2014/03/22 23:07:37 by lsirigna          #+#    #+#             */
-/*   Updated: 2014/03/22 23:07:40 by lsirigna         ###   ########.fr       */
+/*   Created: 2013/12/01 13:00:29 by smarie-c          #+#    #+#             */
+/*   Updated: 2013/12/01 13:00:37 by smarie-c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	*ft_memchr(const void *s, int c, size_t n)
+void	ft_lstadd_end(t_list **alst, t_list *new)
 {
-	size_t					i;
-	const unsigned char		*puc;
+	t_list		*tmp;
 
-	i = 0;
-	if (!(puc = ((const unsigned char *) s)))
-		return (NULL);
-	while (i < n)
-	{
-		if (puc[i] == (unsigned char) c)
-			return ((void *) (s + i));
-		i++;
-	}
-	return (NULL);
+	tmp = *alst;
+	while (tmp->next != NULL)
+		tmp = tmp->next;
+	tmp->next = new;
 }
