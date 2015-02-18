@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: lsirigna <lsirigna@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2013/11/21 10:42:25 by lsirigna          #+#    #+#             */
-/*   Updated: 2013/12/07 03:42:37 by lsirigna         ###   ########.fr       */
+/*   Created: 2015/02/18 15:59:07 by lsirigna          #+#    #+#             */
+/*   Updated: 2015/02/18 15:59:18 by lsirigna         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -85,7 +85,6 @@ void				ft_lstiter(t_list *lst, void (*f)(t_list *elem));
 t_list				*ft_lstmap(t_list *lst, t_list *(*f)(t_list *elem));
 void				ft_lstaddend(t_list **alst, char *buff);
 void				ft_printlst(t_list **alst);
-int					gnl(int fd, char **buff);
 void				ft_strtrimc(char **s, char c);
 void				ft_lst_reverse(t_list **lst);
 void				ft_lstadd_cmp(t_list **lst, t_list *new);

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   get_next_line.h                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: smarie-c <smarie-c@student.42.fr>          +#+  +:+       +#+        */
+/*   By: lsirigna <lsirigna@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2013/12/04 09:34:32 by smarie-c          #+#    #+#             */
-/*   Updated: 2013/12/07 12:15:11 by smarie-c         ###   ########.fr       */
+/*   Created: 2013/12/04 09:34:32 by lsirigna          #+#    #+#             */
+/*   Updated: 2013/12/07 12:15:11 by lsirigna         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #ifndef GET_NEXT_LINE

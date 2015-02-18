@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: smarie-c <smarie-c@student.42.fr>          +#+  +:+       +#+         #
+#    By: lsirigna <lsirigna@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2013/11/20 17:31:01 by smarie-c          #+#    #+#              #
-#    Updated: 2013/12/13 18:59:09 by smarie-c         ###   ########.fr        #
+#    Created: 2013/11/20 17:31:01 by lsirigna          #+#    #+#              #
+#    Updated: 2013/12/13 18:59:09 by lsirigna         ###   ########.fr        #
 #                                                                              #
 #******************************************************************************#
 NAME = ft_ls

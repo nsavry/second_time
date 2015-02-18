@@ -5,8 +5,8 @@
 #                                                     +:+ +:+         +:+      #
 #    By: lsirigna <lsirigna@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2013/11/19 13:57:53 by lsirigna          #+#    #+#              #
-#    Updated: 2014/01/24 20:36:21 by lsirigna         ###   ########.fr        #
+#    Created: 2015/02/18 15:59:24 by lsirigna          #+#    #+#              #
+#    Updated: 2015/02/18 15:59:40 by lsirigna         ###   ########.fr        #
 #                                                                              #
 #******************************************************************************#
 
@@ -74,7 +74,6 @@ SRCS = \
 		ft_strtrim.c\
 		ft_tolower.c\
 		ft_toupper.c\
-		gnl.c\
 		ft_strtrim.c\
 		ft_lst_reverse.c\
 		ft_lstadd_cmp.c\
