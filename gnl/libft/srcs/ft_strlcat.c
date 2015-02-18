@@ -1,30 +1,40 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   get_next_line.h                                    :+:      :+:    :+:   */
+/*   ft_strlcat.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lsirigna <lsirigna@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2015/02/18 17:57:03 by lsirigna          #+#    #+#             */
-/*   Updated: 2015/02/18 17:57:05 by lsirigna         ###   ########.fr       */
+/*   Created: 2015/02/18 16:20:05 by lsirigna          #+#    #+#             */
+/*   Updated: 2015/02/18 16:20:10 by lsirigna         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef GET_NEXT_LINE_H
-# define GET_NEXT_LINE_H
-# define BUFF_SIZE 128
+#include "libft.h"
 
-# include <sys/types.h>
-# include <sys/uio.h>
-# include "libft.h"
-
-typedef struct		s_save
+size_t		ft_strlcat(char *dst, const char *src, size_t size)
 {
-	int				fd;
-	char			*save;
-	struct s_save	*next;
-}					t_save;
+	unsigned int	j;
+	int				i;
+	int				k;
+	unsigned int	len;
 
-int					get_next_line(int const fd, char **line);
-
-#endif
+	i = 0;
+	j = 0;
+	k = 0;
+	while (src[k])
+		k++;
+	while (dst[j])
+	{
+		if (j >= size)
+			return (size + k);
+		j++;
+	}
+	if (j >= size)
+		return (size + k);
+	len = (unsigned int)(j + k);
+	while (j < (size - 1) && src[i])
+		dst[j++] = src[i++];
+	dst[j] = '\0';
+	return (len);
+}

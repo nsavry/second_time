@@ -1,30 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   get_next_line.h                                    :+:      :+:    :+:   */
+/*   ft_lst_reverse.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lsirigna <lsirigna@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2015/02/18 17:57:03 by lsirigna          #+#    #+#             */
-/*   Updated: 2015/02/18 17:57:05 by lsirigna         ###   ########.fr       */
+/*   Created: 2015/02/18 16:04:38 by lsirigna          #+#    #+#             */
+/*   Updated: 2015/02/18 16:04:44 by lsirigna         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef GET_NEXT_LINE_H
-# define GET_NEXT_LINE_H
-# define BUFF_SIZE 128
+#include "libft.h"
 
-# include <sys/types.h>
-# include <sys/uio.h>
-# include "libft.h"
-
-typedef struct		s_save
+void	ft_lst_reverse(t_list **lst)
 {
-	int				fd;
-	char			*save;
-	struct s_save	*next;
-}					t_save;
+	t_list	*tmp1;
+	t_list	*tmp2;
 
-int					get_next_line(int const fd, char **line);
-
-#endif
+	tmp1 = NULL;
+	while ((*lst)->next != NULL)
+	{
+		tmp2 = (*lst)->next;
+		(*lst)->next = tmp1;
+		tmp1 = *lst;
+		*lst = tmp2;
+	}
+	(*lst)->next = tmp1;
+}

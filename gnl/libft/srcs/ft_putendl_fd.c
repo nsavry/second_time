@@ -1,30 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   get_next_line.h                                    :+:      :+:    :+:   */
+/*   ft_putendl_fd.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lsirigna <lsirigna@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2015/02/18 17:57:03 by lsirigna          #+#    #+#             */
-/*   Updated: 2015/02/18 17:57:05 by lsirigna         ###   ########.fr       */
+/*   Created: 2015/02/18 16:10:48 by lsirigna          #+#    #+#             */
+/*   Updated: 2015/02/18 16:10:53 by lsirigna         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef GET_NEXT_LINE_H
-# define GET_NEXT_LINE_H
-# define BUFF_SIZE 128
+#include "libft.h"
 
-# include <sys/types.h>
-# include <sys/uio.h>
-# include "libft.h"
-
-typedef struct		s_save
+void	ft_putendl_fd(char const *s, int fd)
 {
-	int				fd;
-	char			*save;
-	struct s_save	*next;
-}					t_save;
-
-int					get_next_line(int const fd, char **line);
-
-#endif
+	ft_putstr_fd(s, fd);
+	ft_putchar_fd('\n', fd);
+}

@@ -1,30 +1,39 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   get_next_line.h                                    :+:      :+:    :+:   */
+/*   ft_atoi.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lsirigna <lsirigna@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2015/02/18 17:57:03 by lsirigna          #+#    #+#             */
-/*   Updated: 2015/02/18 17:57:05 by lsirigna         ###   ########.fr       */
+/*   Created: 2015/02/18 16:02:05 by lsirigna          #+#    #+#             */
+/*   Updated: 2015/02/18 16:02:12 by lsirigna         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef GET_NEXT_LINE_H
-# define GET_NEXT_LINE_H
-# define BUFF_SIZE 128
+#include "libft.h"
 
-# include <sys/types.h>
-# include <sys/uio.h>
-# include "libft.h"
-
-typedef struct		s_save
+int		ft_atoi(const char *str)
 {
-	int				fd;
-	char			*save;
-	struct s_save	*next;
-}					t_save;
+	int		total;
+	int		i;
+	int		neg;
 
-int					get_next_line(int const fd, char **line);
-
-#endif
+	total = 0;
+	i = 0;
+	neg = 1;
+	while (str[i] == ' ' || (str[i] >= 9 && str[i] <= 13))
+		i++;
+	if (str[i] == '-')
+	{
+		i++;
+		neg = -1;
+	}
+	else if (str[i] == '+')
+		i++;
+	while (str[i] && str[i] <= '9' && str[i] >= '0')
+	{
+		total = (total * 10) + str[i] - '0';
+		i++;
+	}
+	return (total * neg);
+}

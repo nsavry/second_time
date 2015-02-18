@@ -5,10 +5,11 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: lsirigna <lsirigna@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2013/12/03 10:24:43 by lsirigna          #+#    #+#             */
-/*   Updated: 2013/12/08 18:33:52 by lsirigna         ###   ########.fr       */
+/*   Created: 2015/02/18 17:56:44 by lsirigna          #+#    #+#             */
+/*   Updated: 2015/02/18 17:56:46 by lsirigna         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
 #include "get_next_line.h"
 
 static void		ft_addbuf(char **save, char *buf, int ret)
@@ -44,13 +45,13 @@ static t_save	*ft_getfd(int fd, t_save **save)
 	t_save	*tmp;
 
 	tmp = *save;
-	while(tmp != NULL)
+	while (tmp != NULL)
 	{
 		if (tmp->fd == fd)
 			return (tmp);
 		tmp = tmp->next;
 	}
-	tmp = (t_save *) malloc(sizeof(*tmp));
+	tmp = (t_save *)malloc(sizeof(*tmp));
 	if (tmp == NULL)
 		return (NULL);
 	tmp->fd = fd;
@@ -101,7 +102,7 @@ int				get_next_line(int const fd, char **line)
 	if (tmp == NULL)
 		return (-1);
 	while (tmp->save != NULL && ft_strchr(tmp->save, '\n') == NULL
-		   && ((ret = read(fd, buf, BUFF_SIZE)) > 0))
+		&& ((ret = read(fd, buf, BUFF_SIZE)) > 0))
 		ft_addbuf(&(tmp->save), buf, ret);
 	if (ret == -1 || tmp->save == NULL)
 		return (-1);

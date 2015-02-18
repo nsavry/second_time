@@ -1,30 +1,41 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   get_next_line.h                                    :+:      :+:    :+:   */
+/*   ft_strstr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lsirigna <lsirigna@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2015/02/18 17:57:03 by lsirigna          #+#    #+#             */
-/*   Updated: 2015/02/18 17:57:05 by lsirigna         ###   ########.fr       */
+/*   Created: 2015/02/18 16:22:53 by lsirigna          #+#    #+#             */
+/*   Updated: 2015/02/18 16:22:58 by lsirigna         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef GET_NEXT_LINE_H
-# define GET_NEXT_LINE_H
-# define BUFF_SIZE 128
+#include "libft.h"
 
-# include <sys/types.h>
-# include <sys/uio.h>
-# include "libft.h"
-
-typedef struct		s_save
+char	*ft_strstr(const char *s1, const char *s2)
 {
-	int				fd;
-	char			*save;
-	struct s_save	*next;
-}					t_save;
+	int		i;
+	int		j;
+	int		k;
 
-int					get_next_line(int const fd, char **line);
-
-#endif
+	i = 0;
+	if (!s2[i])
+		return ((char*)s1);
+	while (s1[i])
+	{
+		if (s1[i] == s2[0])
+		{
+			k = i;
+			j = 0;
+			while (s2[j] && s1[k] == s2[j])
+			{
+				k++;
+				j++;
+			}
+			if (!s2[j])
+				return ((char*)s1 + i);
+		}
+		i++;
+	}
+	return (NULL);
+}

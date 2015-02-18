@@ -1,30 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   get_next_line.h                                    :+:      :+:    :+:   */
+/*   ft_strdup.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lsirigna <lsirigna@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2015/02/18 17:57:03 by lsirigna          #+#    #+#             */
-/*   Updated: 2015/02/18 17:57:05 by lsirigna         ###   ########.fr       */
+/*   Created: 2013/11/19 18:28:10 by lsirigna          #+#    #+#             */
+/*   Updated: 2013/11/27 19:45:34 by lsirigna         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef GET_NEXT_LINE_H
-# define GET_NEXT_LINE_H
-# define BUFF_SIZE 128
+#include "libft.h"
 
-# include <sys/types.h>
-# include <sys/uio.h>
-# include "libft.h"
-
-typedef struct		s_save
+char	*ft_strdup(const char *src)
 {
-	int				fd;
-	char			*save;
-	struct s_save	*next;
-}					t_save;
+	char		*dest;
+	size_t		len;
 
-int					get_next_line(int const fd, char **line);
-
-#endif
+	len = ft_strlen(src);
+	dest = ft_strnew(len + 1);
+	if (dest == NULL)
+		return (NULL);
+	ft_strcpy(dest, src);
+	return (dest);
+}

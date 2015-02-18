@@ -1,30 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   get_next_line.h                                    :+:      :+:    :+:   */
+/*   ft_memmove.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lsirigna <lsirigna@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2015/02/18 17:57:03 by lsirigna          #+#    #+#             */
-/*   Updated: 2015/02/18 17:57:05 by lsirigna         ###   ########.fr       */
+/*   Created: 2015/02/18 16:09:27 by lsirigna          #+#    #+#             */
+/*   Updated: 2015/02/18 16:09:32 by lsirigna         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef GET_NEXT_LINE_H
-# define GET_NEXT_LINE_H
-# define BUFF_SIZE 128
+#include "libft.h"
 
-# include <sys/types.h>
-# include <sys/uio.h>
-# include "libft.h"
-
-typedef struct		s_save
+void	*ft_memmove(void *s1, const void *s2, size_t n)
 {
-	int				fd;
-	char			*save;
-	struct s_save	*next;
-}					t_save;
+	unsigned char	*tmp_s1;
+	unsigned char	*tmp_s2;
+	int				i;
 
-int					get_next_line(int const fd, char **line);
-
-#endif
+	tmp_s1 = (unsigned char*)s1;
+	tmp_s2 = (unsigned char*)s2;
+	if (tmp_s2 < tmp_s1)
+	{
+		i = n - 1;
+		while (i >= 0)
+		{
+			*(tmp_s1 + i) = *(tmp_s2 + i);
+			i--;
+		}
+	}
+	else
+		ft_memcpy(s1, s2, n);
+	return (s1);
+}

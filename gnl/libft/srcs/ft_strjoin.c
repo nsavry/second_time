@@ -1,30 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   get_next_line.h                                    :+:      :+:    :+:   */
+/*   ft_strjoin.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lsirigna <lsirigna@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2015/02/18 17:57:03 by lsirigna          #+#    #+#             */
-/*   Updated: 2015/02/18 17:57:05 by lsirigna         ###   ########.fr       */
+/*   Created: 2015/02/18 16:19:39 by lsirigna          #+#    #+#             */
+/*   Updated: 2015/02/18 16:19:56 by lsirigna         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef GET_NEXT_LINE_H
-# define GET_NEXT_LINE_H
-# define BUFF_SIZE 128
+#include "libft.h"
 
-# include <sys/types.h>
-# include <sys/uio.h>
-# include "libft.h"
-
-typedef struct		s_save
+char	*ft_strjoin(char const *s1, char const *s2)
 {
-	int				fd;
-	char			*save;
-	struct s_save	*next;
-}					t_save;
+	char		*join;
+	size_t		size1;
 
-int					get_next_line(int const fd, char **line);
-
-#endif
+	if (!s1 && !s2)
+		return (NULL);
+	else if (!s1)
+		return (ft_strdup(s2));
+	else if (!s2)
+		return (ft_strdup(s1));
+	size1 = ft_strlen(s1);
+	join = ft_strnew(size1 + ft_strlen(s2) + 1);
+	if (join == NULL)
+		return (NULL);
+	ft_strcpy(join, s1);
+	ft_strcat(join, s2);
+	return (join);
+}
